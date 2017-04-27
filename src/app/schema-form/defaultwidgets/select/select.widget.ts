@@ -5,11 +5,17 @@ import { ControlWidget } from '../../widget';
 @Component({
   selector: 'sf-select-widget',
   template: `
-	<md-select name="name" placeholder="name" floatPlaceholder="never">
-	  <md-option *ngFor="let option of schema.oneOf" [value]="option.enum[0]" >{{option.description}}</md-option>
+	<md-select 
+	  [id] = "id"
+	  [placeholder]="schema.placeholder" 
+	  [disabled]="schema.readOnly?true:null" 
+	  [formControl]="control" >
+	    <md-option *ngFor="let option of schema.oneOf" 
+	      [value]="option.enum" >
+	        {{option.description}}
+	    </md-option>
 	</md-select>
 	<md-hint *ngIf="schema.description">{{schema.description}}</md-hint>
-	<input *ngIf="schema.readOnly" [attr.name]="name" type="hidden" [formControl]="control">
 `
 })
 export class SelectWidget extends ControlWidget {}

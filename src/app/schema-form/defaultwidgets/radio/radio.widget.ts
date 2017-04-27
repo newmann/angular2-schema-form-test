@@ -4,14 +4,18 @@ import { ControlWidget } from '../../widget';
 
 @Component({
   selector: 'sf-radio-widget',
-  template: `<md-radio-group >
-	<label>{{schema.title}}</label>
-  <span *ngIf="schema.description">{{schema.description}}</span>
-	<md-radio-button *ngFor="let option of schema.oneOf" [name]="name" [value]="option.enum[0]" [disabled]="schema.readOnly">
-		{{option.description}}
-	</md-radio-button>
-	<input *ngIf="schema.readOnly" [attr.name]="name" type="hidden" [formControl]="control">
-</md-radio-group>`
+
+  template: `<md-radio-group class="column-group">
+    	<label>{{schema.title}}</label>
+      <span *ngIf="schema.description">{{schema.description}}</span>
+	    <md-radio-button *ngFor="let option of schema.oneOf" 
+	      [name]="name" 
+	      [value]="option.enum[0]" 
+	      [disabled]="schema.readOnly">
+		    {{option.description}}
+	    </md-radio-button>
+    </md-radio-group>`,
+  styles:['.column-group{ display: inline-flex;flex-direction: column;}']
 })
 export class RadioWidget extends ControlWidget {}
 

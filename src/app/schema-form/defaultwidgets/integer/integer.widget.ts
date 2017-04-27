@@ -10,7 +10,7 @@ import { ControlWidget } from '../../widget';
 @Component({
   selector: 'sf-integer-widget',
   template: `<md-input-container class="full-width">
-	  <input mdInput [readonly]="schema.readOnly?true:null" [name]="name" [formControl]="control" [type]="'number'" [min]="schema.minimum" [max]="schema.maximum" [placeholder]="schema.title + schema.placeholder" >
+	  <input mdInput [readonly]="schema.readOnly?true:null" [name]="name" [formControl]="control" [type]="'number'" [min]="schema.minimum" [max]="schema.maximum" [placeholder]="schema.title" [id] = "id" >
 	  <md-hint *ngIf="schema.description">{{schema.description}}</md-hint>
 </md-input-container>`,
   styles:['.full-width{ width: 100%;}']
