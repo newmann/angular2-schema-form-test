@@ -10,10 +10,16 @@ import { ControlWidget } from '../../widget';
 @Component({
   selector: 'sf-integer-widget',
   template: `<md-input-container class="full-width">
-	  <input mdInput [readonly]="schema.readOnly?true:null" [name]="name" [formControl]="control" [type]="'number'" [min]="schema.minimum" [max]="schema.maximum" [placeholder]="schema.title" [id] = "id" >
+	  <input mdInput [readonly]="schema.readOnly?true:null" [name]="name" [formControl]="control" [type]="'number'" [min]="schema.minimum" [max]="schema.maximum" [placeholder]="schema.label" [id] = "id" >
 	  <md-hint *ngIf="schema.description">{{schema.description}}</md-hint>
-</md-input-container>`,
-  styles:['.full-width{ width: 100%;}']
+	  <!--<md-hint *ngIf="validators">{{validators.}}</md-hint>-->
+</md-input-container>
+  <div [hidden]="!(control.invalid && control.touched)">
+      {{control.errors | json}}
+  </div>
+
+`,
+  styles:['.full-width{ width: 100%;};[hidden] {display: none;}']
 })
 export class IntegerWidget extends ControlWidget {}
 

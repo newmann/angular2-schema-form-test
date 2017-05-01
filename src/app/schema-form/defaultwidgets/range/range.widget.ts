@@ -5,6 +5,9 @@ import { ControlWidget } from '../../widget';
 @Component({
   selector: 'sf-range-widget',
   template: `
+      <label>
+        {{ schema.label }}
+      </label>
     <md-slider class="full-width"
         [formControl]="control"
         [id]="id"
@@ -18,6 +21,7 @@ import { ControlWidget } from '../../widget';
         [value]="value"
         [vertical]="vertical">
     </md-slider>
+    <md-hint *ngIf="schema.description" class="formHelp">{{schema.description}}</md-hint>    
 `,
   styles:['.full-width{ width: 100%;}']
 })

@@ -18,7 +18,7 @@ import {SchemaFormModule} from "./schema-form/schema-form.module";
     FormsModule,
     HttpModule,
     SchemaFormModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     BrowserAnimationsModule
   ],
   providers: [],

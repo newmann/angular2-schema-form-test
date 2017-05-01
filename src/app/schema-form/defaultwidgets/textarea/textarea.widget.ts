@@ -5,7 +5,7 @@ import { ControlWidget } from '../../widget';
 @Component({
   selector: 'sf-textarea-widget',
   template: `<md-input-container class="full-width" >
-    <textarea  mdInput [name]="name" [attr.readonly]="schema.readOnly?true:null" [attr.id]="id"  [formControl]="control" placeholder="{{schema.title}}" >
+    <textarea  mdInput [name]="name" [attr.readonly]="schema.readOnly?true:null" [attr.id]="id"  [formControl]="control" placeholder="{{schema.label}}" >
     </textarea>
     <md-hint *ngIf="schema.description" >{{schema.description}}</md-hint>
 </md-input-container>`,

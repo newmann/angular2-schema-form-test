@@ -5,8 +5,7 @@ import { ControlWidget } from '../../widget';
 @Component({
   selector: 'sf-string-widget',
   template: `<md-input-container class="full-width" >
-    <input mdInput [name]="name" [attr.readonly]="(schema.widget.id!=='color') && schema.readOnly?true:null"  [attr.type]="this.getInputType()" [attr.id]="id"  [formControl]="control" placeholder="{{schema.title}}" [attr.disabled]="(schema.widget.id=='color' && schema.readOnly)?true:null">
-    <input mdInput *ngIf="(schema.widget.id==='color' && schema.readOnly)" [attr.name]="name" type="hidden" [formControl]="control">
+    <input mdInput [name]="name" [attr.readonly]="(schema.widget.id!=='color') && schema.readOnly?true:null"  [attr.type]="this.getInputType()" [attr.id]="id"  [formControl]="control" placeholder="{{schema.label}}" [attr.disabled]="(schema.widget.id=='color' && schema.readOnly)?true:null">
     <md-hint *ngIf="schema.description" >{{schema.description}}</md-hint>
 </md-input-container>`,
   styles:['.full-width{ width: 100%;}']

@@ -1,13 +1,14 @@
 {
 	"$schema": "http://json-schema.org/draft-04/hyper-schema#",
 	"type": "object",
+  "label":"自定义表单",
 	"properties": {
 		"firstName": {
 			"type": "string",
 			"placeholder": "First name",
 			"minLength": 2,
 			"maxLength": 40,
-			"title": "First name",
+			"label": "First name",
 			"description": "First name"
 		},
 		"lastName": {
@@ -15,10 +16,11 @@
 			"placeholder": "Last name",
 			"minLength": 2,
 			"maxLength": 40,
-			"title": "Last name",
+			"label": "Last name",
 			"description": "Last name"
 		},
 		"bornOn": {
+      "label":"出生年月",
 			"type": "string",
 			"format": "date",
 			"widget": "date",
@@ -27,6 +29,7 @@
 			"description": "Born on"
 		},
 		"moreInfo":{
+      "label":"其他信息",
 			"type": "boolean",
 			"widget": "checkbox",
 			"description":"More information?",
@@ -35,16 +38,20 @@
 		"survey": {
 			"type": "object",
 			"description": "Little survey",
+      "label":"调查问卷",
 			"properties": {
 				"q1":{
+          "label":"问题一",
 					"type": "string",
 					"description": "Enter a number"
 				},
 				"q2": {
+          "label":"问题二",
 					"type": "object",
 					"description": "Address",
 					"properties": {
 						"color": {
+              "label":"颜色",
 							"description": "color",
 							"type": "string",
 							"default":"#aaa000",
@@ -52,6 +59,7 @@
 							"widget": "color"
 						},
 						"zip": {
+              "label":"邮政编码",
 							"description": "zip",
 							"type": "number",
 							"default": 15
@@ -61,6 +69,7 @@
 			}
 		},
 		"favoriteColor": {
+      "label":"喜欢的颜色",
 			"type": "string",
 			"pattern": "^#[0-9a-fA-F]{6}$",
 			"widget": "color",
@@ -71,63 +80,70 @@
 			}
 		},
 		"transactionNumber": {
+      "label":"交易号",
 			"type": "integer",
 			"minimum": 0,
 			"description": "Transaction number"
 		},
 		"transactionDescription": {
+      "label":"交易说明",
 			"type": "string",
 			"widget": "textline",
 			"description": "What is being transacted"
 		},
 		"category": {
+      "label":"分类",
 			"type":"string",
 			"widget": "select",
 			"oneOf": [{
-				"description": "Design",
+				"label": "Design",
 				"enum": ["design"]
 			},
 			{
-				"description": "High-Tech",
+				"label": "High-Tech",
 				"enum": ["hightech"]
 			},
 			{
-				"description": "Materials",
+				"label": "Materials",
 				"enum": ["materials"]
 			},
 			{
-				"description": "Services",
+				"label": "Services",
 				"enum": ["services"]
 			}],
 			"description": "Category"
 		},
 		"promotion": {
+      "label":"促销",
 			"type":"string",
 			"description": "Promotion",
 			"widget": "radio",
 			"oneOf": [{
-				"description": "Student discount (20%)",
+				"label": "Student discount (20%)",
 				"enum": ["student"]
 			},
 			{
-				"description": "Summer 2016 discount (15%)",
+				"label": "Summer 2016 discount (15%)",
 				"enum": ["summer"]
 			},{
-				"description": "None",
+				"label": "None",
 				"enum": ["none"]
 			}]
 		},
 		"confirmationMail": {
+      "label":"确认邮箱",
 			"type": "string",
 			"description": "Email",
 			"format": "email"
 		},
 		"password": {
+      "label":"密码",
 			"type": "string",
 			"widget": "password",
 			"description": "Password"
 		},
 		"numberOfBoxes": {
+      "label":"箱子数量",
 			"type": "number",
 			"widget": {
 				"id": "range"
@@ -137,23 +153,25 @@
 			"maximum": 10
 		},
 		"deliveryService": {
+      "label":"服务方",
 			"type":"string",
 			"widget":"select",
 			"description": "Delivery service",
 			"oneOf":[{
-				"description": "UPS",
+				"label": "UPS",
 				"enum": ["ups"]
 			},
 			{
-				"description": "FedEx",
+				"label": "FedEx",
 				"enum": ["fedex"]
 			},{
-				"description":"Other",
+				"label":"Other",
 				"enum": ["other"]
 			}],
 			"default":"fedex"
 		},
 		"otherDeliveryService":{
+      "label":"其他服务商",
 			"type": "string",
 			"minLength":2,
 			"visibleIf": {
@@ -161,6 +179,7 @@
 			}
 		},
 		"freeShipping": {
+      "label":"免物流费",
 			"type": "boolean",
 			"widget": "checkbox",
 			"description":"Free shipping",
@@ -169,6 +188,7 @@
 			}
 		},
 		"shippingPrice": {
+      "label":"船运价格",
 			"type": "number",
 			"description":"ShippingCost",
 			"minimum":0,
@@ -178,6 +198,7 @@
 			}
 		},
 		"sendApologies":{
+      "label":"船运成本说明",
 			"type": "boolean",
 			"widget": "checkbox",
 			"description":"Send apologies for the shipping cost",
@@ -186,10 +207,12 @@
 			}
 		},
 		"useCustomEmail": {
+      "label":"是否发送客户邮件",
 			"type": "boolean",
 			"description": "Write a custom email ?"
 		},
 		"customEmail": {
+      "label":"客户邮件内容",
 			"type": "string",
 			"widget": "textarea",
 			"description": "Email to send",
@@ -199,6 +222,7 @@
 			"pattern": "^<h1>"
 		},
 		"userManual": {
+      "label":"用户手册",
 			"type": "string",
 			"widget": "file",
 			"description": "Add a manual for the delivered items",
@@ -208,6 +232,7 @@
 			}
 		},
 		"colors": {
+      "label":"颜色",
 			"type": "array",
 			"description": "Colors",
 			"index": "i",
@@ -242,28 +267,28 @@
 	}],
 	"fieldsets":[{
 		"id": "part_1",
-		"title": "Part 1 - Recipient",
+		"label": "Part 1 - Recipient",
 		"fields":[ "firstName", "lastName", "bornOn", "moreInfo", "favoriteColor", "colors","survey"]
 	},
 	{
 		"id": "part_2",
 
-		"title": "Part 2 - Transaction",
+		"label": "Part 2 - Transaction",
 		"fields":["transactionNumber", "transactionDescription","promotion","category", "userManual"]
 	},
 	{
 		"id": "part_3",
-		"title": "Part 3 - Shipping",
+		"label": "Part 3 - Shipping",
 		"fields": ["numberOfBoxes","deliveryService","otherDeliveryService","freeShipping","shippingPrice","sendApologies"]
 	},
 	{
 		"id": "part_4",
-		"title": "Part 4 - Email",
+		"label": "Part 4 - Email",
 		"fields": ["useCustomEmail","customEmail"]
 	},
 	{
 		"id": "part_5",
-		"title": "Part 5 - Confirmation",
+		"label": "Part 5 - Confirmation",
 		"fields": ["confirmationMail","password"]
 	}],
 	"required": ["firstName", "lastName", "transactionNumber","password"]

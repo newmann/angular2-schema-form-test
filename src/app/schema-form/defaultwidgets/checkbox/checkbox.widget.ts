@@ -6,8 +6,9 @@ import { ControlWidget } from '../../widget';
   selector: 'sf-checkbox-widget',
   template: `
     <md-checkbox [disabled]="schema.readOnly" [name]="name" [formControl]="control" [id] = "id" >
-        {{schema.placeholder}}
+        {{schema.label}}
     </md-checkbox>
+    
 `
 })
 export class CheckboxWidget extends ControlWidget {}
@@ -24,3 +25,5 @@ export class CheckboxWidget extends ControlWidget {}
 // 		</label>
 // 	</div>
 // </div>`
+
+// <md-hint *ngIf="schema.description">{{schema.description}}</md-hint>

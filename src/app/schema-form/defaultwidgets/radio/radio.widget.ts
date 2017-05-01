@@ -12,7 +12,7 @@ import { ControlWidget } from '../../widget';
 	      [name]="name" 
 	      [value]="option.enum[0]" 
 	      [disabled]="schema.readOnly">
-		    {{option.description}}
+		    {{option.label}}
 	    </md-radio-button>
     </md-radio-group>`,
   styles:['.column-group{ display: inline-flex;flex-direction: column;}']

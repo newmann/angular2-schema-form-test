@@ -5,14 +5,15 @@ import { ControlWidget } from '../../widget';
 @Component({
   selector: 'sf-select-widget',
   template: `
+  <label>{{schema.label}}</label>
 	<md-select 
 	  [id] = "id"
 	  [placeholder]="schema.placeholder" 
 	  [disabled]="schema.readOnly?true:null" 
 	  [formControl]="control" >
 	    <md-option *ngFor="let option of schema.oneOf" 
-	      [value]="option.enum" >
-	        {{option.description}}
+	      [value]="option.enum[0]" >
+	        {{option.label}}
 	    </md-option>
 	</md-select>
 	<md-hint *ngIf="schema.description">{{schema.description}}</md-hint>

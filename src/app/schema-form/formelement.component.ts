@@ -22,7 +22,14 @@ import {
 	(widgetInstanciated)="onWidgetInstanciated($event)"
 	[widgetInfo]="formProperty.schema.widget">
 	</sf-widget-chooser>
-	<button *ngFor="let button of buttons" (click)="button.action($event)">{{button.label}}</button>
+	
+	<ng-container *ngIf="(buttons?.length>0)?true:false" >
+	  <p></p>
+	  <md-divider ></md-divider>
+	  <p></p>
+	</ng-container>
+	
+	<button md-raised-button *ngFor="let button of buttons" (click)="button.action($event)">{{button.label}}</button>
 </div>`
 })
 export class FormElementComponent implements OnInit {

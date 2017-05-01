@@ -6,11 +6,10 @@ import { ControlWidget } from '../../widget';
   selector: 'sf-file-widget',
   template: `<div class="widget form-group">
 	<label [attr.for]="id" class="horizontal control-label">
-		{{ schema.title }}
+		{{ schema.label }}
 	</label>
-    <span *ngIf="schema.description" class="formHelp">{{schema.description}}</span>
 	<input [name]="name" class="text-widget file-widget" [attr.id]="id" [formControl]="control" type="file" [attr.disabled]="schema.readOnly?true:null" >
-	<input *ngIf="schema.readOnly" [attr.name]="name" type="hidden" [formControl]="control">
+  <md-hint *ngIf="schema.description" class="formHelp">{{schema.description}}</md-hint>
 </div>`
 })
 export class FileWidget extends ControlWidget {
@@ -19,3 +18,13 @@ export class FileWidget extends ControlWidget {
     super();
   }
 }
+
+// template: `<div class="widget form-group">
+// 	<label [attr.for]="id" class="horizontal control-label">
+// 		{{ schema.title }}
+// 	</label>
+//     <span *ngIf="schema.description" class="formHelp">{{schema.description}}</span>
+// 	<input [name]="name" class="text-widget file-widget" [attr.id]="id" [formControl]="control" type="file" [attr.disabled]="schema.readOnly?true:null" >
+// 	<input *ngIf="schema.readOnly" [attr.name]="name" type="hidden" [formControl]="control">
+// </div>`
+// })
